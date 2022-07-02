@@ -16,7 +16,7 @@ import java.awt.event.MouseEvent;
 
 public class Login {
     JFrame frame = new JFrame("Login");
-    private JPanel form_login;
+    private JPanel form_loginjj;
     private JTextField txt_email;
     private JTextField txt_password;
     private JButton btn_login;
@@ -24,6 +24,9 @@ public class Login {
     private JLabel lbl_register;
 
     public Login(){
+        if (form_loginjj==null){
+            System.out.println("null");
+        }else{
 
         createUI();
         btn_login.addActionListener(new ActionListener() {
@@ -41,10 +44,11 @@ public class Login {
 
             }
         });
+        }
     }
     private void createUI(){
-
-        frame.setContentPane(form_login);
+        System.out.println(form_loginjj);
+        frame.setContentPane(form_loginjj);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
@@ -84,9 +88,11 @@ public class Login {
                 //print result
                 //System.out.println(result.getEmail());
 //                String result="asdas";
+
                 if(result!=null){
+                    //System.out.println(result.getType());
                     //JOptionPane.showMessageDialog(null, result.getEmail());
-                    if (result.getEmail() == "customer") {
+                    if (result.getType() == "customer") {
                         JOptionPane.showMessageDialog(null, "Login Successful");
                         frame.setVisible(false);
                         new CustomerDash();
@@ -99,21 +105,16 @@ public class Login {
                         frame.setVisible(false);
                         new AgentDash();
                     } else {
-                        JOptionPane.showMessageDialog(null, "Login Failed");
+                        JOptionPane.showMessageDialog(null, "Login Failed1");
                     }
                         
                     //new AdminPage();
                 }else{
-                    JOptionPane.showMessageDialog(null, "Login failed");
+                    JOptionPane.showMessageDialog(null, "Login failed2");
                 }
             }
     }
 
-    public JPanel getForm_login() {
-        return form_login;
-    }
-//    public static void main(String[] args) {
-//        new Login();
-//    }
+
 
 }
