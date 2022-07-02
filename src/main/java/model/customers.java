@@ -22,6 +22,11 @@ public class customers {
         this.dob = dob;
     }
 
+    public customers(int id, String email, String password, String phone, String nid, String type) {
+
+    }
+
+
     public int getId() {
         return id;
     }

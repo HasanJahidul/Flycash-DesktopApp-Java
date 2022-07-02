@@ -18,6 +18,7 @@ public class Register {
     private JLabel lbl_login;
 
     public Register() {
+        frame.setContentPane(form_register);
         createUI();
         btn_register.addActionListener(new ActionListener() {
             @Override
@@ -31,21 +32,17 @@ public class Register {
                 super.mouseClicked(e);
                 frame.setVisible(false);
                 new Login();
-
             }
         });
     }
     private void createUI(){
 
-        frame.setContentPane(form_register);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-
         //set window size
         frame.setSize(500, 500);
         frame.setLocationRelativeTo(null);
-
     }
     private void register(){
         String email = txt_Email.getText();

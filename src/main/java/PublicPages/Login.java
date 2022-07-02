@@ -1,15 +1,15 @@
 package PublicPages;
 
-import database.DBcon;
-import model.customers;
-import org.springframework.jdbc.core.JdbcTemplate;
-import javax.sql.DataSource;
+import Dao.AuthDao;
+import model.LoginUser;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.List;
 
 public class Login {
     JFrame frame = new JFrame("Login");
@@ -21,6 +21,7 @@ public class Login {
     private JLabel lbl_register;
 
     public Login(){
+
         createUI();
         btn_login.addActionListener(new ActionListener() {
             @Override
@@ -68,17 +69,25 @@ public class Login {
     }
     private void login(){
         String email = txt_email.getText();
-                String password = txt_password.getText();
-                if(email.equals("") || password.equals("")){
-                    JOptionPane.showMessageDialog(null, "Please fill in all fields");
+        String password = txt_password.getText();
+            if(email.equals("") || password.equals("")){
+                JOptionPane.showMessageDialog(null, "Please fill in all fields");
+            } else {
+                ApplicationContext applicationContext1 = new ClassPathXmlApplicationContext("application-context.xml");
+                AuthDao authDao = applicationContext1.getBean("authDao", AuthDao.class);
+                // String result= String.valueOf(authDao.AuthenticateUser(email,password));
+                // get result from database
+                //LoginUser result = authDao.AuthenticateUser(email, password);
+                //print result
+                //System.out.println(result.getEmail());
+                String result="asdas";
+                if(result!=null){
+                    JOptionPane.showMessageDialog(null, result);
+                    //new AdminPage();
                 }else{
-                    if(email.equals("admin") && password.equals("admin")){
-                        JOptionPane.showMessageDialog(null, "Login successful");
-                        //new AdminPage();
-                    }else{
-                        JOptionPane.showMessageDialog(null, "Login failed");
-                    }
+                    JOptionPane.showMessageDialog(null, "Login failed");
                 }
+            }
     }
 
     public JPanel getForm_login() {

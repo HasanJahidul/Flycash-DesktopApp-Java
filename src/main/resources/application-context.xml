@@ -6,10 +6,14 @@
 
     <bean id="dataSource" class="com.mysql.cj.jdbc.MysqlDataSource">
         <property name="url" value="jdbc:mysql://server.ashrhmn.com:3306/flycash" />
+<!--        <property name="url" value="jdbc:mysql://localhost:3306/flycash" />-->
         <property name="user" value="flycash"/>
         <property name="password" value="flycash" />
     </bean>
-    <bean id="DBCon" class="database.DBcon">
+    <bean id="dataDao" class="Dao.DataDao">
         <constructor-arg ref="dataSource"/>
     </bean>
+    <bean id="authDao" class="Dao.AuthDao">
+    <constructor-arg ref="dataSource"/>
+</bean>
 </beans>

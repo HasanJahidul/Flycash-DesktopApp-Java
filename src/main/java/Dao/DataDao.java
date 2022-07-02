@@ -1,36 +1,44 @@
-package database;
+package Dao;
 
 import javax.sql.DataSource;
 
-import model.customers;
+import model.LoginUser;
 import org.springframework.jdbc.core.JdbcTemplate;
-import java.sql.*;
+
 import java.util.List;
 
-public class DBcon {
+public class DataDao {
     private static JdbcTemplate jdbcTemplate;
-    public DBcon(DataSource dataSource) {
+    public DataDao(DataSource dataSource) {
+
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
-
-    public DBcon() {
-
+    public JdbcTemplate getConnection(){
+        return this.jdbcTemplate;
     }
-    public  List<customers> getAllUsers() {
+
+//    public DBcon() {
+//
+//    }
+
+    public List<LoginUser> getAllFlycashLoginUsers() {
         return this.jdbcTemplate.query(
-                "select id, username, password from customers",
-                (resultSet, rowNum) -> new customers(
+                "select id, email, password, phone, nid, type from loginusers",
+                (resultSet, rowNum) -> new LoginUser(
                         resultSet.getInt("id"),
-                        resultSet.getString("name"),
                         resultSet.getString("email"),
                         resultSet.getString("password"),
-                        resultSet.getString("nid"),
                         resultSet.getString("phone"),
-                        resultSet.getString("dob")
-
-                )
-        );
+                        resultSet.getString("nid"),
+                        resultSet.getString("type")));
     }
+    
+    //get customer by email and email
+//    public LoginUser AuthenticateUser(String email,String password) {
+//
+//
+//    }
+    
 //    public DBcon(){
 //        try{
 //            //Class.forName("com.mysql.jdbc.Driver");

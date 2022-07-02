@@ -39,7 +39,7 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Enter Email"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="3a702" class="javax.swing.JTextField" binding="txt_password">
@@ -49,7 +49,7 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Enter Password"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="875ca" class="javax.swing.JButton" binding="btn_login">
