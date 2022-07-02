@@ -14,6 +14,7 @@ public class AuthDao {
     public LoginUser AuthenticateUser(String email, String password){
         // authenticate user
 
+        try{
             return this.jdbcTemplate.queryForObject(
                     "select id, email, password, phone, nid, type from loginusers where email = ? and password = ?",
                     (resultSet, rowNum) -> new LoginUser(
@@ -24,6 +25,12 @@ public class AuthDao {
                             resultSet.getString("nid"),
                             resultSet.getString("type")),
                     email,password);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+
 
     }
 }

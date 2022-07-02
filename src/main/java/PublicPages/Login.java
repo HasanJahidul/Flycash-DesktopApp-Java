@@ -77,12 +77,12 @@ public class Login {
                 AuthDao authDao = applicationContext1.getBean("authDao", AuthDao.class);
                 // String result= String.valueOf(authDao.AuthenticateUser(email,password));
                 // get result from database
-                //LoginUser result = authDao.AuthenticateUser(email, password);
+                LoginUser result = authDao.AuthenticateUser(email, password);
                 //print result
                 //System.out.println(result.getEmail());
-                String result="asdas";
+//                String result="asdas";
                 if(result!=null){
-                    JOptionPane.showMessageDialog(null, result);
+                    JOptionPane.showMessageDialog(null, result.getEmail());
                     //new AdminPage();
                 }else{
                     JOptionPane.showMessageDialog(null, "Login failed");
