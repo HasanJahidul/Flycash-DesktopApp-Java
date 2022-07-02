@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26274fb6-cafa-46da-85cf-12bf3a8838c1" name="Changes" comment="login and register page created" />
+    <list default="true" id="26274fb6-cafa-46da-85cf-12bf3a8838c1" name="Changes" comment="login and register page created">
+      <change afterPath="$PROJECT_DIR$/src/main/java/PublicPages/table.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/PublicPages/table.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database/DBcon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/customers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application-context.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PublicPages/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PublicPages/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PublicPages/Register.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PublicPages/Register.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PublicPages/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PublicPages/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +25,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Tag Library Descriptor" />
+        <option value="Kotlin File" />
+        <option value="spring-beans.schema" />
         <option value="Class" />
       </list>
     </option>
@@ -34,10 +49,19 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.STATE": "left",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.STATE": "right",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "E:/OneDrive - American International University-Bangladesh/AIUB/ATP 1/spring-framework",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.side.proportion": "0.2",
+    "spring.configuration.checksum": "84b685280376f6c51ca268da8629fc13"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="RunManager" selected="Application.main">
@@ -77,6 +101,8 @@
       <option name="presentableId" value="Default" />
       <updated>1656715355916</updated>
       <workItem from="1656715357951" duration="4107000" />
+      <workItem from="1656753093916" duration="7153000" />
+      <workItem from="1656760478627" duration="3818000" />
     </task>
     <task id="LOCAL-00001" summary="login and register page created">
       <created>1656720097001</created>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dataSource" class="com.mysql.cj.jdbc.MysqlDataSource">
+        <property name="databaseName" value="my_app"/>
+        <property name="url" value="jdbc:mysql://localhost:84/flycash" />
+        <property name="user" value="root"/>
+        <property name="password" value="" />
+    </bean>
+    <bean id="DBCon" class="database.DBcon">
+        <constructor-arg ref="dataSource"/>
+    </bean>
+</beans>
