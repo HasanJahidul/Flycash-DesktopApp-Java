@@ -1,6 +1,9 @@
 package PublicPages;
 
 import Dao.AuthDao;
+import PrivatePages.Agent.AgentDash;
+import PrivatePages.Customer.CustomerDash;
+import PrivatePages.Admin.*;
 import model.LoginUser;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -82,7 +85,23 @@ public class Login {
                 //System.out.println(result.getEmail());
 //                String result="asdas";
                 if(result!=null){
-                    JOptionPane.showMessageDialog(null, result.getEmail());
+                    //JOptionPane.showMessageDialog(null, result.getEmail());
+                    if (result.getEmail() == "customer") {
+                        JOptionPane.showMessageDialog(null, "Login Successful");
+                        frame.setVisible(false);
+                        new CustomerDash();
+                    } else if (result.getEmail() == "admin") {
+                        JOptionPane.showMessageDialog(null, "Login Successful");
+                        frame.setVisible(false);
+                        new AdminDash();
+                    }else if(result.getEmail() == "agent"){
+                        JOptionPane.showMessageDialog(null, "Login Successful");
+                        frame.setVisible(false);
+                        new AgentDash();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Login Failed");
+                    }
+                        
                     //new AdminPage();
                 }else{
                     JOptionPane.showMessageDialog(null, "Login failed");
