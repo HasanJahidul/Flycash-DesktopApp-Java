@@ -1,8 +1,10 @@
+import PrivatePages.Customer.CustomerDash;
 import PublicPages.*;
 
 public class main {
     public static void main(String[] args) {
-        new Login();
+//        new Login();
+        new CustomerDash();
         //new Register();
         //new DBcon();
         //new table();

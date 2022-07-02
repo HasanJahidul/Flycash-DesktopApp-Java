@@ -9,6 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -52,26 +53,14 @@ public class Login {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-
-        //set text field
-        txt_email.setBackground(new java.awt.Color(255, 255, 255));
-        txt_email.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txt_email.setForeground(new java.awt.Color(0, 0, 0));
-        txt_email.setBorder(null);
-        txt_email.setCaretColor(new java.awt.Color(0, 0, 0));
-        txt_email.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txt_email.setMargin(new java.awt.Insets(2, 2, 2, 2));
-        txt_email.setSelectionColor(new java.awt.Color(0, 0, 0));
-        txt_email.setSelectedTextColor(new java.awt.Color(0, 0, 0));
-        txt_email.setSelectionColor(new java.awt.Color(0, 0, 0));
-        txt_email.setSelectedTextColor(new java.awt.Color(0, 0, 0));
-
-
         //set window size
         frame.setSize(500, 500);
         frame.setLocationRelativeTo(null);
-
+        //set icon
+        frame.setIconImage(new ImageIcon("flycash.png").getImage());
         
+
+
         
     }
     private void login(){
@@ -92,15 +81,15 @@ public class Login {
                 if(result!=null){
                     //System.out.println(result.getType());
                     //JOptionPane.showMessageDialog(null, result.getEmail());
-                    if (result.getType() == "customer") {
+                    if (result.getType().equals("customer")) {
                         JOptionPane.showMessageDialog(null, "Login Successful");
                         frame.setVisible(false);
                         new CustomerDash();
-                    } else if (result.getEmail() == "admin") {
+                    } else if (result.getEmail().equals("admin")) {
                         JOptionPane.showMessageDialog(null, "Login Successful");
                         frame.setVisible(false);
                         new AdminDash();
-                    }else if(result.getEmail() == "agent"){
+                    }else if(result.getEmail().equals("agent")){
                         JOptionPane.showMessageDialog(null, "Login Successful");
                         frame.setVisible(false);
                         new AgentDash();

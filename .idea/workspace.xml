@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26274fb6-cafa-46da-85cf-12bf3a8838c1" name="Changes" comment="login and register page created">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PrivatePages/Customer/CustomerDash.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PrivatePages/Customer/CustomerDash.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/PrivatePages/Customer/CustomerDash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PrivatePages/Customer/CustomerDash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PublicPages/Login.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PublicPages/Login.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/PublicPages/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PublicPages/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +107,7 @@
       <workItem from="1656790277061" duration="1608000" />
       <workItem from="1656791911483" duration="626000" />
       <workItem from="1656792697404" duration="433000" />
-      <workItem from="1656794170371" duration="2517000" />
+      <workItem from="1656794170371" duration="4328000" />
     </task>
     <task id="LOCAL-00001" summary="login and register page created">
       <created>1656720097001</created>
