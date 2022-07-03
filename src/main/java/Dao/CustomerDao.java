@@ -41,4 +41,10 @@ public class CustomerDao {
                         resultSet.getString("balance"),
                         resultSet.getString("transaction_status")),email);
     }
+
+    public boolean getCustomerByPhone(String phone) {
+        List<Integer> res =  this.jdbcTemplate.query(
+                "select 1 from customers where phone=?",(resu,row)->1,phone);
+        return res.size()>0;
+    }
 }

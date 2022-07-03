@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26274fb6-cafa-46da-85cf-12bf3a8838c1" name="Changes" comment="login and register page created">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/TransDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/TransDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PrivatePages/TransactionsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PrivatePages/TransactionsPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/CustomerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/CustomerDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PrivatePages/Customer/CustomerDash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PrivatePages/Customer/CustomerDash.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

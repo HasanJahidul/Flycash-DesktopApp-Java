@@ -38,6 +38,8 @@ public class CustomerDash {
         Customer res=GetData(email);
         System.out.println(res.getName());
         lbl_UserName.setText(res.getName());
+        System.out.println(customerDao.getCustomerByPhone("0197354541300"));
+        System.out.println(customerDao.getCustomerByPhone("01973545413"));
 //        lbl_UserName.setText(email);
 
         // JPanel panel = new JPanel(new GridLayout(4, 4, 3, 3));
