@@ -1,6 +1,7 @@
 package PrivatePages.Customer;
 
 import Dao.CustomerDao;
+import model.Customer;
 import model.CustomerTransactions;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -26,9 +27,13 @@ public class CustomerDash {
     private JTable tbl_transaction;
     private JScrollPane scPan_transactions;
 
-    public CustomerDash() {
+    ApplicationContext applicationContext1 = new ClassPathXmlApplicationContext("application-context.xml");
+    CustomerDao customerDao = applicationContext1.getBean("customerDao", CustomerDao.class);
+    public CustomerDash(String email) {
         createUI();
         Table();
+        Customer res=GetData(email);
+        lbl_UserName.setText(res.getName());
 
         // JPanel panel = new JPanel(new GridLayout(4, 4, 3, 3));
 
@@ -54,16 +59,21 @@ public class CustomerDash {
         frame.pack();
         frame.setVisible(true);
         //set window size
-        frame.setSize(500, 500);
+        frame.setSize(900, 500);
         frame.setLocationRelativeTo(null);
         //set icon
         frame.setIconImage(new ImageIcon("flycash.png").getImage());
 
     }
+    private Customer GetData(String email){
+        Customer result= customerDao.getCustomer(email);
+        return result;
+
+    }
 
     private void Table() {
         //show data in tbl_transaction
-        String[] columnNames = { "ID", "Email", "Phone", "Transaction Type", "Date", "Amount", "Balance" };
+        String[] columnNames = { "SL No.", "Email", "Phone", "Transaction Type", "Date", "Amount", "Balance" };
 //        String[] rowData = { "1", "2", "3", "4", "5", "6", "7" };
         DefaultTableModel model = new DefaultTableModel(columnNames, 0);
         tbl_transaction.setModel(model);
@@ -74,13 +84,13 @@ public class CustomerDash {
         tbl_transaction.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
 
-        ApplicationContext applicationContext1 = new ClassPathXmlApplicationContext("application-context.xml");
-        CustomerDao customerDao = applicationContext1.getBean("customerDao", CustomerDao.class);
+        int count=1;
         for (CustomerTransactions trans: customerDao.getAllTransactions()){
             //add data to tbl_transaction
             System.out.println(trans);
-            String[] rowData = { String.valueOf(trans.getId()),trans.getEmail(),trans.getPhone(),trans.getTransaction_type(),String.valueOf(trans.getDate()),trans.getAmount(),trans.getBalance() };
+            String[] rowData = { String.valueOf(count),trans.getEmail(),trans.getPhone(),trans.getTransaction_type(),String.valueOf(trans.getDate()),trans.getAmount(),trans.getBalance() };
             model.addRow(rowData);
+            count++;
 
 
         }

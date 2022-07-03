@@ -84,7 +84,7 @@ public class Login {
                     if (result.getType().equals("customer")) {
                         JOptionPane.showMessageDialog(null, "Login Successful");
                         frame.setVisible(false);
-                        new CustomerDash();
+                        new CustomerDash(result.getEmail());
                     } else if (result.getEmail().equals("admin")) {
                         JOptionPane.showMessageDialog(null, "Login Successful");
                         frame.setVisible(false);

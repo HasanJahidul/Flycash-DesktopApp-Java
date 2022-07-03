@@ -1,6 +1,6 @@
 package model;
 
-public class customers {
+public class Customer {
     private int id;
     private String name;
     private String email;
@@ -9,10 +9,10 @@ public class customers {
     private String phone;
     private String dob;
 
-    public customers() {
+    public Customer() {
     }
 
-    public customers(int id, String name, String email, String password, String nid, String phone, String dob) {
+    public Customer(int id, String name, String email, String password, String nid, String phone, String dob) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -22,7 +22,7 @@ public class customers {
         this.dob = dob;
     }
 
-    public customers(int id, String email, String password, String phone, String nid, String type) {
+    public Customer(int id, String email, String password, String phone, String nid, String type) {
 
     }
 

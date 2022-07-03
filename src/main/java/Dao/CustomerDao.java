@@ -1,5 +1,7 @@
 package Dao;
+import model.Customer;
 import model.CustomerTransactions;
+import model.LoginUser;
 import org.springframework.jdbc.core.JdbcTemplate;
 import javax.sql.DataSource;
 import java.util.List;
@@ -23,5 +25,17 @@ public class CustomerDao {
                         resultSet.getDate("date"),
                         resultSet.getString("amount"),
                         resultSet.getString("balance")));
+    }
+    // get customer
+    public Customer getCustomer(String email) {
+        return this.jdbcTemplate.queryForObject(
+                "select id, email,phone, nid, type, balance from customers where email=?",
+                (resultSet, rowNum) -> new Customer(
+                        resultSet.getInt("id"),
+                        resultSet.getString("email"),
+                        resultSet.getString("phone"),
+                        resultSet.getString("nid"),
+                        resultSet.getString("type"),
+                        resultSet.getString("balance")),email);
     }
 }
