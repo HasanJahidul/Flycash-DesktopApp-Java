@@ -37,11 +37,9 @@ public class TransactionsPanel {
             //
             System.out.println("In");
             // adding comboBox value
-            cmb_trans.addItem("Hello");
-            cmb_trans.addItem("Hi");
-            pan_transaction.remove(pan_txtPhone);
-
-
+//            cmb_trans.addItem("Hello");
+//            cmb_trans.addItem("Hi");
+//            pan_transaction.remove(pan_txtPhone);
         }
         createUI(transType);
         lbl_transType.setText(transType);
@@ -77,7 +75,7 @@ public class TransactionsPanel {
         if (txt_password.getText().equals(cus.getPassword())){
             if (transType.equals("Donate money")){
                 System.out.println(cmb_trans.getSelectedItem());
-
+                System.out.println(cus);
             }
         }else{
             JOptionPane.showMessageDialog(null, "Invalid Password");
