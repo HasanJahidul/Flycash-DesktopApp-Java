@@ -64,7 +64,7 @@ public class CustomerDash {
     private void Table() {
         //show data in tbl_transaction
         String[] columnNames = { "ID", "Email", "Phone", "Transaction Type", "Date", "Amount", "Balance" };
-        String[] rowData = { "1", "2", "3", "4", "5", "6", "7" };
+//        String[] rowData = { "1", "2", "3", "4", "5", "6", "7" };
         DefaultTableModel model = new DefaultTableModel(columnNames, 0);
         tbl_transaction.setModel(model);
         tbl_transaction.setEnabled(false);
@@ -74,15 +74,16 @@ public class CustomerDash {
         tbl_transaction.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
 
-//        ApplicationContext applicationContext1 = new ClassPathXmlApplicationContext("application-context.xml");
-//        CustomerDao customerDao = applicationContext1.getBean("customerDao", CustomerDao.class);
-//        for (CustomerTransactions trans: customerDao.getAllTransactions()){
-//            //add data to tbl_transaction
-//            System.out.println(trans);
-//            model.addRow(rowData);
-//
-//
-//        }
+        ApplicationContext applicationContext1 = new ClassPathXmlApplicationContext("application-context.xml");
+        CustomerDao customerDao = applicationContext1.getBean("customerDao", CustomerDao.class);
+        for (CustomerTransactions trans: customerDao.getAllTransactions()){
+            //add data to tbl_transaction
+            System.out.println(trans);
+            String[] rowData = { String.valueOf(trans.getId()),trans.getEmail(),trans.getPhone(),trans.getTransaction_type(),String.valueOf(trans.getDate()),trans.getAmount(),trans.getBalance() };
+            model.addRow(rowData);
+
+
+        }
 
     }
 }
