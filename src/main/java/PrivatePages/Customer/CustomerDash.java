@@ -1,6 +1,7 @@
 package PrivatePages.Customer;
 
 import Dao.CustomerDao;
+import PrivatePages.TransactionsPanel;
 import model.Customer;
 import model.CustomerTransactions;
 import org.springframework.context.ApplicationContext;
@@ -8,6 +9,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -52,6 +55,49 @@ public class CustomerDash {
         // f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // f.setVisible(true);
         // f.setLocationRelativeTo(null);
+        btn_addMoney.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                new TransactionsPanel(email,"Add money");
+            }
+        });
+        btn_cashIn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                new TransactionsPanel(email,"Cash In");
+            }
+        });
+        btn_payBill.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                new TransactionsPanel(email,"Pay Bill");
+            }
+        });
+        btn_cashOut.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                new TransactionsPanel(email,"Cash Out");
+            }
+        });
+        btn_donate.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                new TransactionsPanel(email,"Donate money");
+
+            }
+        });
+        btn_transferMoney.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                new TransactionsPanel(email,"Transfer Money");
+            }
+        });
     }
 
     private void createUI() {
@@ -89,8 +135,8 @@ public class CustomerDash {
         int count=1;
         for (CustomerTransactions trans: customerDao.getAllTransactions()){
             //add data to tbl_transaction
-//            System.out.println(trans);
-            String[] rowData = { String.valueOf(count),trans.getEmail(),trans.getPhone(),trans.getTransaction_type(),String.valueOf(trans.getDate()),trans.getAmount(),trans.getBalance() };
+//             System.out.println(trans);
+            String[] rowData = { String.valueOf(count),trans.getEmail(),trans.getPhone(),trans.getTransaction_type(),String.valueOf(trans.getDate()),trans.getAmount(),trans.getBalance()};
             model.addRow(rowData);
             count++;
 

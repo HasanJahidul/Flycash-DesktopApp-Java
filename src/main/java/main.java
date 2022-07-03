@@ -1,11 +1,13 @@
 import PrivatePages.Customer.CustomerDash;
+import PrivatePages.TransactionsPanel;
 import PublicPages.*;
 
 public class main {
     public static void main(String[] args) {
         //new Login();
-        new CustomerDash("joy@gmail.com");
+new CustomerDash("joy@gmail.com");
         //new Register();
+//        new TransactionsPanel();
         //new DBcon();
         //new table();
 //        ApplicationContext applicationContext1 = new ClassPathXmlApplicationContext("application-context.xml");

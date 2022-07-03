@@ -21,4 +21,7 @@
     <bean id="customerDao" class="Dao.CustomerDao">
         <constructor-arg ref="dataSource"/>
     </bean>
+    <bean id="transDao" class="Dao.TransDao">
+        <constructor-arg ref="dataSource"/>
+    </bean>
 </beans>
