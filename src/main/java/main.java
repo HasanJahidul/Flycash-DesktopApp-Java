@@ -3,8 +3,8 @@ import PublicPages.*;
 
 public class main {
     public static void main(String[] args) {
-        new Login();
-//        new CustomerDash();
+        //new Login();
+        new CustomerDash("joy@gmail.com");
         //new Register();
         //new DBcon();
         //new table();

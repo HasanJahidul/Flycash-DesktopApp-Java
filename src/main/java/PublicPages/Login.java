@@ -99,7 +99,7 @@ public class Login {
                         
                     //new AdminPage();
                 }else{
-                    JOptionPane.showMessageDialog(null, "Login failed2");
+                    JOptionPane.showMessageDialog(null, "Invalid Email or Password\n User does not exists");
                 }
             }
     }

@@ -33,7 +33,9 @@ public class CustomerDash {
         createUI();
         Table();
         Customer res=GetData(email);
+        System.out.println(res.getName());
         lbl_UserName.setText(res.getName());
+//        lbl_UserName.setText(email);
 
         // JPanel panel = new JPanel(new GridLayout(4, 4, 3, 3));
 
@@ -87,7 +89,7 @@ public class CustomerDash {
         int count=1;
         for (CustomerTransactions trans: customerDao.getAllTransactions()){
             //add data to tbl_transaction
-            System.out.println(trans);
+//            System.out.println(trans);
             String[] rowData = { String.valueOf(count),trans.getEmail(),trans.getPhone(),trans.getTransaction_type(),String.valueOf(trans.getDate()),trans.getAmount(),trans.getBalance() };
             model.addRow(rowData);
             count++;

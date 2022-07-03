@@ -5,14 +5,17 @@ public class Customer {
     private String name;
     private String email;
     private String password;
-    private String nid;
     private String phone;
+    private String nid;
     private String dob;
+    private String balance;
+    private String transaction_status;
 
     public Customer() {
     }
 
-    public Customer(int id, String name, String email, String password, String nid, String phone, String dob) {
+    public Customer(int id, String name, String email, String password, String phone, String nid,String dob, String balance,
+            String transaction_status) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -20,6 +23,8 @@ public class Customer {
         this.nid = nid;
         this.phone = phone;
         this.dob = dob;
+        this.balance = balance;
+        this.transaction_status = transaction_status;
     }
 
     public Customer(int id, String email, String password, String phone, String nid, String type) {
@@ -81,6 +86,21 @@ public class Customer {
 
     public void setDob(String dob) {
         this.dob = dob;
+    }
+
+    public String getBalance() {
+        return balance;
+    }
+
+    public void setBalance(String balance) {
+        this.balance = balance;
+    }
+
+    public String getTransaction_status() {
+        return transaction_status;
+    }
+    public void setTransaction_status(String transaction_status) {
+        this.transaction_status = transaction_status;
     }
     
 }

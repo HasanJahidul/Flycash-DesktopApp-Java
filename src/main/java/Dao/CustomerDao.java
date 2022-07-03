@@ -29,13 +29,16 @@ public class CustomerDao {
     // get customer
     public Customer getCustomer(String email) {
         return this.jdbcTemplate.queryForObject(
-                "select id, email,phone, nid, type, balance from customers where email=?",
+                "select id,name, email,password,type,phone, nid, dob, balance,transaction_status from customers where email=?",
                 (resultSet, rowNum) -> new Customer(
                         resultSet.getInt("id"),
+                        resultSet.getString("name"),
                         resultSet.getString("email"),
+                        resultSet.getString("password"),
                         resultSet.getString("phone"),
                         resultSet.getString("nid"),
-                        resultSet.getString("type"),
-                        resultSet.getString("balance")),email);
+                        resultSet.getString("dob"),
+                        resultSet.getString("balance"),
+                        resultSet.getString("transaction_status")),email);
     }
 }
