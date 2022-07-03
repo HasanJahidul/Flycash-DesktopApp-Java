@@ -1,5 +1,6 @@
 package PrivatePages;
 
+import Dao.CustomerDao;
 import Dao.TransDao;
 import PrivatePages.Customer.CustomerDash;
 import model.Customer;
@@ -28,6 +29,7 @@ public class TransactionsPanel {
 
     ApplicationContext applicationContext1 = new ClassPathXmlApplicationContext("application-context.xml");
     TransDao transDao = applicationContext1.getBean("transDao", TransDao.class);
+    CustomerDao customerDao = applicationContext1.getBean("customerDao", CustomerDao.class);
     JFrame frame;
 
     public TransactionsPanel(Customer cus, String transType) {
@@ -37,9 +39,11 @@ public class TransactionsPanel {
             //
             System.out.println("In");
             // adding comboBox value
-//            cmb_trans.addItem("Hello");
-//            cmb_trans.addItem("Hi");
-//            pan_transaction.remove(pan_txtPhone);
+            cmb_trans.addItem("Hello");
+            cmb_trans.addItem("Hi");
+            pan_transaction.remove(pan_txtPhone);
+        }else{
+            pan_transaction.remove(pan_cmbTrans);
         }
         createUI(transType);
         lbl_transType.setText(transType);
@@ -53,6 +57,7 @@ public class TransactionsPanel {
                 new CustomerDash(cus.getEmail());
             }
         });
+
 
 
         btn_make_trans.addActionListener(new ActionListener() {
@@ -73,10 +78,17 @@ public class TransactionsPanel {
     }
     private void makeTransaction(Customer cus,String transType){
         if (txt_password.getText().equals(cus.getPassword())){
-            if (transType.equals("Donate money")){
-                System.out.println(cmb_trans.getSelectedItem());
-                System.out.println(cus);
+            if(Integer.parseInt(txt_amount.getText())<10){
+                JOptionPane.showMessageDialog(null, "Can't make a transaction under 10 Taka)");
+            }else{
+                //            if (transType.equals("Add money")||transType.equals("Cash In")){
+//                System.out.println(cmb_trans.getSelectedItem());
+//                System.out.println(cus);
+//            }
+                System.out.println(Integer.parseInt(txt_amount.getText()));
+
             }
+
         }else{
             JOptionPane.showMessageDialog(null, "Invalid Password");
         }

@@ -9,5 +9,7 @@ public class TransDao {
         this.jdbcTemplate=new JdbcTemplate(dataSource);
     }
 
+    public void makeTransaction(String email, String phone, String transType,String amount , String balance){
 
+    }
 }
