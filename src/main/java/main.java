@@ -5,8 +5,8 @@ import PublicPages.*;
 public class main {
     public static void main(String[] args) {
         //new Login();
-//new CustomerDash("joy@gmail.com");
-        new TransactionsPanel("joy@gmail.com","Donate money");
+new CustomerDash("joy@gmail.com");
+//        new TransactionsPanel("joy@gmail.com","Donate money");
         //new Register();
 //        new TransactionsPanel();
         //new DBcon();

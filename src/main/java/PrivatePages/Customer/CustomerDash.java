@@ -59,35 +59,35 @@ public class CustomerDash {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
-                new TransactionsPanel(email,"Add money");
+                new TransactionsPanel(res,"Add money");
             }
         });
         btn_cashIn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
-                new TransactionsPanel(email,"Cash In");
+                new TransactionsPanel(res,"Cash In");
             }
         });
         btn_payBill.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
-                new TransactionsPanel(email,"Pay Bill");
+                new TransactionsPanel(res,"Pay Bill");
             }
         });
         btn_cashOut.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
-                new TransactionsPanel(email,"Cash Out");
+                new TransactionsPanel(res,"Cash Out");
             }
         });
         btn_donate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
-                new TransactionsPanel(email,"Donate money");
+                new TransactionsPanel(res,"Donate money");
 
             }
         });
@@ -95,7 +95,7 @@ public class CustomerDash {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
-                new TransactionsPanel(email,"Transfer Money");
+                new TransactionsPanel(res,"Transfer Money");
             }
         });
     }
