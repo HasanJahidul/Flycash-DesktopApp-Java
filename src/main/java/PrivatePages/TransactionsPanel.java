@@ -23,9 +23,21 @@ public class TransactionsPanel {
 
     ApplicationContext applicationContext1 = new ClassPathXmlApplicationContext("application-context.xml");
     TransDao transDao = applicationContext1.getBean("transDao", TransDao.class);
-    JFrame frame = new JFrame();
+    JFrame frame;
+    JComboBox comboBox;
 
     public TransactionsPanel(String email,String transType) {
+        frame = new JFrame(transType);
+        System.out.println("Type : "+transType);
+        if (transType.equals("Donate money")){
+            //
+            System.out.println("In");
+            comboBox = new JComboBox();
+//            comboBox.addItem("Hello");
+//            comboBox.addItem("Bye");
+            pan_transaction.add(comboBox);
+//            pan_transaction.remove(txt_phone);
+        }
         createUI(transType);
         lbl_transType.setText(transType);
         btn_make_trans.setText(transType);
@@ -38,6 +50,7 @@ public class TransactionsPanel {
                 new CustomerDash(email);
             }
         });
+
 
     }
 
