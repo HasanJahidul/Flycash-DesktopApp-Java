@@ -1,6 +1,7 @@
 package services;
 
 import model.Agents;
+import model.Customer;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public class AgentService {
@@ -22,6 +23,20 @@ public class AgentService {
                         resultSet.getString("dob"),
                         resultSet.getString("balance"),
                         resultSet.getString("transaction_status")),phone);
+    }
+    public Agents getAgent(String email) {
+        return this.jdbcTemplate.queryForObject(
+                "select id,name, email,password,phone, nid, dob, balance,transaction_status from agents where email=?",
+                (resultSet, rowNum) -> new Agents(
+                        resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("email"),
+                        resultSet.getString("password"),
+                        resultSet.getString("phone"),
+                        resultSet.getString("nid"),
+                        resultSet.getString("dob"),
+                        resultSet.getString("balance"),
+                        resultSet.getString("transaction_status")),email);
     }
     public int updateAgentBalanceByPhone(String phone, String balance) {
         return this.jdbcTemplate.update("update agents set balance=? where phone=?", balance, phone);

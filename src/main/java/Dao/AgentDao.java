@@ -2,7 +2,11 @@ package Dao;
 import javax.sql.DataSource;
 
 import model.AgentTransactions;
+import model.Agents;
+import model.Customer;
 import org.springframework.jdbc.core.JdbcTemplate;
+import services.AgentService;
+import services.CustomerService;
 
 import java.util.List;
 
@@ -33,4 +37,8 @@ public class AgentDao {
                 "select 1 from agents where phone=?", (resu, row) -> 1, phone);
         return res.size() > 0;
     }
+    public Agents getAgent(String email) {
+        return AgentService.Connect(jdbcTemplate).getAgent(email);
+    }
+
 }

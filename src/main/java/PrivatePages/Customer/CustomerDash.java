@@ -2,6 +2,7 @@ package PrivatePages.Customer;
 
 import Dao.CustomerDao;
 import PrivatePages.TransactionsPanel;
+import PublicPages.Login;
 import model.Customer;
 import model.CustomerTransactions;
 import org.springframework.context.ApplicationContext;
@@ -11,6 +12,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class CustomerDash {
     final JFrame frame = new JFrame("Customer Dashboard");
@@ -119,6 +122,14 @@ public class CustomerDash {
                     frame.setVisible(false);
                     new TransactionsPanel(res, "Transfer Money");
                 }
+            }
+        });
+        lbl_logOut.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                frame.setVisible(false);
+                new Login();
             }
         });
     }

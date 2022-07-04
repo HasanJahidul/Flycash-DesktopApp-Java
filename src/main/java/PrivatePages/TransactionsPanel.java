@@ -3,8 +3,10 @@ package PrivatePages;
 import Dao.AgentDao;
 import Dao.CustomerDao;
 import Dao.TransDao;
+import PrivatePages.Agent.AgentDash;
 import PrivatePages.Customer.CustomerDash;
 import com.google.protobuf.StringValue;
+import model.Agents;
 import model.Customer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -73,6 +75,56 @@ public class TransactionsPanel {
                 makeTransaction(cus,transType);
             }
         });
+    }
+    //constructor for agent
+    public TransactionsPanel(Agents agent, String transType) {
+        frame = new JFrame(transType);
+        System.out.println("Type : "+transType);
+        pan_transaction.remove(pan_cmbTrans);
+
+        createUI(transType);
+        lbl_transType.setText(transType);
+        btn_make_trans.setText(transType);
+        //lbl_back
+        lbl_back.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                frame.setVisible(false);
+                new AgentDash(agent.getEmail());
+            }
+        });
+
+
+
+        btn_make_trans.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                makeAgentTransaction(agent,transType);
+            }
+        });
+    }
+    //make transaction for agents
+    private void makeAgentTransaction(Agents agent, String transType) {
+        int amount = Integer.parseInt(txt_amount.getText());
+        int balance = Integer.parseInt(agent.getBalance());
+        if(amount > balance){
+            showMessage("Insufficient balance");
+        } else {
+            int newBalance = balance - amount;
+            agent.setBalance(String.valueOf(newBalance));
+            int res = transDao.makeAgentTransaction(agent.getEmail(), txt_phone.getText(),lbl_transType.getText(), txt_amount.getText(),String.valueOf(newBalance));
+            if (res==1){
+                showMessage("Transaction successful");
+                frame.setVisible(false);
+                new AgentDash(agent.getEmail());
+            }else{
+               showMessage("Something is wrong with the server\n\n Please wait until experts fix bugs");
+            }
+           
+        }
+        
     }
 
     private void createUI(String transType) {

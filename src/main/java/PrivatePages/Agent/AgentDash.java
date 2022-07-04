@@ -1,32 +1,60 @@
 package PrivatePages.Agent;
 
 import Dao.AgentDao;
-import Dao.CustomerDao;
+import PrivatePages.TransactionsPanel;
+import PublicPages.Login;
 import model.AgentTransactions;
-import model.CustomerTransactions;
+import model.Agents;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.util.List;
+import java.awt.event.*;
 
 public class AgentDash {
-    private JButton button1;
-    private JButton button3;
-    private JButton button4;
-    private JButton button2;
+    private JButton btn_cashin;
+    private JButton btn_searchTrans;
     private JTable tbl_agentTrans;
     private JLabel lbl_logout;
     private JPanel pan_agentDash;
     private JLabel lbl_name;
+    private JLabel lbl_balance;
     final JFrame frame = new JFrame("Agent Dashboard");
     ApplicationContext applicationContext1 = new ClassPathXmlApplicationContext("application-context.xml");
     AgentDao agentDao = applicationContext1.getBean("agentDao", AgentDao.class);
 
     public AgentDash(String email) {
+        Agents res=GetData(email);
+        lbl_name.setText("Name: "+res.getName());
+        lbl_balance.setText("Balance: "+res.getBalance());
         createUI();
         Table(email);
+
+        lbl_logout.addComponentListener(new ComponentAdapter() {
+        });
+    lbl_logout.addComponentListener(new ComponentAdapter() { } );
+        lbl_name.addComponentListener(new ComponentAdapter() {
+        });
+        lbl_logout.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                frame.setVisible(false);
+                new Login();
+            }
+        });
+        btn_cashin.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.setVisible(false);
+                new TransactionsPanel(res, "Cash in");
+            }
+        });
+    }
+    private Agents GetData(String email){
+        Agents result= agentDao.getAgent(email);
+        return result;
 
     }
     private void createUI() {
@@ -68,9 +96,5 @@ public class AgentDash {
 
         }
 
-    }
-
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
     }
 }

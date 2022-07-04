@@ -45,6 +45,22 @@ public class TransDao {
      }
 
     }
+    public int makeAgentTransaction(String email, String phone, String transType, String amount, String balance) {
+
+            Customer customer= CustomerService.Connect(jdbcTemplate).getCustomerDataByPhone(phone);
+            int rcvr_balance = Integer.parseInt(customer.getBalance())+Integer.parseInt(amount);
+            int balance_updated =CustomerService.Connect(jdbcTemplate).updateBalanceByPhone(phone, String.valueOf(rcvr_balance));
+            int senderBalanceUpdated= AgentService.Connect(jdbcTemplate).updateAgentBalanceByEmail(email,balance);
+            return insertAgentTransHistory(email,phone,transType,amount,balance,balance_updated);
+
+    }
+    public int insertAgentTransHistory(String email, String phone, String transType, String amount, String balance,int balance_updated){
+        if (balance_updated==1){
+            return this.jdbcTemplate.update("insert into agentstransactions (email,phone,transaction_type,amount,balance) values (?,?,?,?,?)",email,phone,transType,amount,balance);
+        }else{
+            return 0;
+        }
+    }
     public int insertTransHistory(String email, String phone, String transType, String amount, String balance,int balance_updated){
         if (balance_updated==1){
             return this.jdbcTemplate.update("insert into customerstransactions (email,phone,transaction_type,amount,balance) values (?,?,?,?,?)",email,phone,transType,amount,balance);
