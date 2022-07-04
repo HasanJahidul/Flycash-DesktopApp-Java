@@ -37,7 +37,7 @@ public class CustomerDash {
         Table(email);
         Customer res=GetData(email);
         System.out.println(res.getName());
-        lbl_UserName.setText(res.getName());
+        lbl_UserName.setText(res.getName()+"\nBalance: "+res.getBalance());
         System.out.println(customerDao.getCustomerByPhone("0197354541300"));
         System.out.println(customerDao.getCustomerByPhone("01973545413"));
 //        lbl_UserName.setText(email);

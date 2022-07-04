@@ -13,7 +13,14 @@ public class TransDao {
 
 
 
+
     public int makeTransaction(String email, String phone, String transType,String amount , String balance){
-        return this.jdbcTemplate.update("insert into customerstransactions (email,phone,transaction_type,amount,balance) values (?,?,?,?,?)",email,phone,transType,amount,balance);
+
+        //update balance to customer
+        String sql1 = "update customers set balance=? where email=?";
+        return this.jdbcTemplate.update(sql1, balance, email);
+        
+
+        // return this.jdbcTemplate.update("insert into customerstransactions (email,phone,transaction_type,amount,balance) values (?,?,?,?,?)",email,phone,transType,amount,balance);
     }
 }
