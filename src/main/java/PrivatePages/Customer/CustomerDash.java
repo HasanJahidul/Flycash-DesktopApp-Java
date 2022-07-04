@@ -11,10 +11,6 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 
 public class CustomerDash {
     final JFrame frame = new JFrame("Customer Dashboard");
@@ -22,7 +18,7 @@ public class CustomerDash {
     private JButton btn_donate;
     private JButton btn_addMoney;
     private JButton btn_payBill;
-    private JButton btn_cashIn;
+    private JButton btn_sendMoney;
     private JButton btn_cashOut;
     private JButton btn_transferMoney;
     private JLabel lbl_UserName;
@@ -69,14 +65,14 @@ public class CustomerDash {
 
             }
         });
-        btn_cashIn.addActionListener(new ActionListener() {
+        btn_sendMoney.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(res.getTransaction_status().equals("blocked")){
                     JOptionPane.showMessageDialog(null, "Your transaction has been blocked\n Please contact to customer care");
                 }else {
                     frame.setVisible(false);
-                    new TransactionsPanel(res, "Cash In");
+                    new TransactionsPanel(res, "Send Money");
                 }
             }
         });

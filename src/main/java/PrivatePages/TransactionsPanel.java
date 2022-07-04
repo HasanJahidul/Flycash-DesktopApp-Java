@@ -9,6 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -78,27 +79,57 @@ public class TransactionsPanel {
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
     }
+    private void passTrnasValue(Customer cus,int updated_balance){
+        int res=transDao.makeCustomerTransaction(cus.getEmail(), txt_phone.getText(),lbl_transType.getText(), txt_amount.getText(),String.valueOf(updated_balance));
+        if (res==1){
+            JOptionPane.showMessageDialog(null, "Transaction Successful");
+            frame.setVisible(false);
+            new CustomerDash(cus.getEmail());
+        }else{
+            JOptionPane.showMessageDialog(null,"Something is wrong with the server\n\n Please wait until experts fix bugs");
+        }
+
+    }
+    private void showMessage(String msg){
+        JOptionPane.showMessageDialog(null, msg);
+    }
     private void makeTransaction(Customer cus,String transType){
         int amount = Integer.parseInt(txt_amount.getText());
         int balance = Integer.parseInt(cus.getBalance());
+
         if (txt_password.getText().equals(cus.getPassword())){
+            int updated_balance;
             if(amount<10){
-                JOptionPane.showMessageDialog(null, "Can't make a transaction under 10 Taka)");
+                showMessage("Can't make a transaction under 10 Taka");
             }else{
-                    if (transType.equals("Add money")||transType.equals("Cash In")) {
+                    if (transType.equals("Add money")){
 //                    System.out.println(cmb_trans.getSelectedItem());
 //                    System.out.println(cus);
-                        int updated_balance = balance + amount;
+                        updated_balance = balance + amount;
+                        passTrnasValue(cus,updated_balance );
                         System.out.println(updated_balance);
-                        int reso=transDao.makeTransaction(cus.getEmail(), txt_phone.getText(),lbl_transType.getText(), String.valueOf(amount),String.valueOf(updated_balance));
-                        System.out.println(reso);
+                    }else if(transType.equals("Send Money")){
+                        if(customerDao.getCustomerByPhone(txt_phone.getText())==true){
 
+                            showMessage("user Found");
+                        }else{
+                            showMessage("user not found");
+                        }
+
+
+                }else{
+                        if (amount < balance){
+                            updated_balance=balance-amount;
+                            passTrnasValue(cus, updated_balance );
+                        }else{
+                            showMessage("insufficient Balance");
+                        }
 
                     }
             }
 
         }else{
-            JOptionPane.showMessageDialog(null, "Invalid Password");
+            showMessage("Invalid Password");
         }
     }
     

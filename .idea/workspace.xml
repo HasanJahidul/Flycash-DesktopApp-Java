@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="26274fb6-cafa-46da-85cf-12bf3a8838c1" name="Changes" comment="login and register page created">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/CustomerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/CustomerDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Dao/TransDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/TransDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PrivatePages/Customer/CustomerDash.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PrivatePages/Customer/CustomerDash.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/PrivatePages/Customer/CustomerDash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PrivatePages/Customer/CustomerDash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PrivatePages/TransactionsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PrivatePages/TransactionsPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,6 +124,8 @@
       <workItem from="1656921554702" duration="495000" />
       <workItem from="1656926560458" duration="3284000" />
       <workItem from="1656936915500" duration="817000" />
+      <workItem from="1656937749250" duration="344000" />
+      <workItem from="1656938118487" duration="4589000" />
     </task>
     <task id="LOCAL-00001" summary="login and register page created">
       <created>1656720097001</created>
