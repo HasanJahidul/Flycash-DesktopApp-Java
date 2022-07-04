@@ -72,7 +72,7 @@ public class AgentDash {
     }
     private void Table(String email) {
         //show data in tbl_transaction
-        String[] columnNames1 = { "SL No.", "Email", "Phone", "Transaction Type", "Date", "Amount","Balance" };
+        String[] columnNames1 = { "SL No.",  "Phone", "Transaction Type", "Date", "Amount","Balance" };
 //        String[] rowData = { "1", "2", "3", "4", "5", "6", "7" };
         DefaultTableModel model1 = new DefaultTableModel(columnNames1,0);
 //        model1.setRowCount(0);
@@ -90,7 +90,7 @@ public class AgentDash {
         for (AgentTransactions trans: agentDao.getAllAgentTransactions(email)){
             //add data to tbl_transaction
 //             System.out.println(trans);
-            String[] rowData = { String.valueOf(count),trans.getEmail(),trans.getPhone(),trans.getTransaction_type(),String.valueOf(trans.getDate()),trans.getAmount(),trans.getBalance()};
+            String[] rowData = { String.valueOf(count),trans.getPhone(),trans.getTransaction_type(),String.valueOf(trans.getDate()),trans.getAmount(),trans.getBalance()};
             model1.addRow(rowData);
             count++;
 

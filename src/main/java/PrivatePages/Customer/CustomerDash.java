@@ -155,7 +155,7 @@ public class CustomerDash {
 
     private void Table(String email) {
         //show data in tbl_transaction
-        String[] columnNames = { "SL No.", "Email", "Phone", "Transaction Type", "Date", "Amount", "Balance" };
+        String[] columnNames = { "SL No.", "Phone", "Transaction Type", "Date", "Amount", "Balance" };
 //        String[] rowData = { "1", "2", "3", "4", "5", "6", "7" };
         DefaultTableModel model = new DefaultTableModel(columnNames, 0);
         tbl_transaction.setModel(model);
@@ -170,7 +170,7 @@ public class CustomerDash {
         for (CustomerTransactions trans: customerDao.getAllTransactions(email)){
             //add data to tbl_transaction
 //             System.out.println(trans);
-            String[] rowData = { String.valueOf(count),trans.getEmail(),trans.getPhone(),trans.getTransaction_type(),String.valueOf(trans.getDate()),trans.getAmount(),trans.getBalance()};
+            String[] rowData = { String.valueOf(count),trans.getPhone(),trans.getTransaction_type(),String.valueOf(trans.getDate()),trans.getAmount(),trans.getBalance()};
             model.addRow(rowData);
             count++;
 

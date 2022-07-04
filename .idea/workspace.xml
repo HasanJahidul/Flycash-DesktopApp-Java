@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26274fb6-cafa-46da-85cf-12bf3a8838c1" name="Changes" comment="login and register page created">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/AgentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/AgentDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dao/TransDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/TransDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PrivatePages/Agent/AgentDash.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PrivatePages/Agent/AgentDash.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/PrivatePages/Agent/AgentDash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PrivatePages/Agent/AgentDash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PrivatePages/Customer/CustomerDash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PrivatePages/Customer/CustomerDash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PrivatePages/TransactionsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PrivatePages/TransactionsPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/AgentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/AgentService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +125,7 @@
       <workItem from="1656946622258" duration="6052000" />
       <workItem from="1656952731591" duration="1882000" />
       <workItem from="1656954734012" duration="1386000" />
-      <workItem from="1656959526988" duration="4280000" />
+      <workItem from="1656959526988" duration="5071000" />
     </task>
     <task id="LOCAL-00001" summary="login and register page created">
       <created>1656720097001</created>
