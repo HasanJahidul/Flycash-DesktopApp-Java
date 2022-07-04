@@ -14,9 +14,9 @@ public class CustomerDao {
         this.jdbcTemplate=new JdbcTemplate(dataSource);
     }
 
-    public List<CustomerTransactions> getAllTransactions() {
+    public List<CustomerTransactions> getAllTransactions(String email) {
         return this.jdbcTemplate.query(
-                "select id, email,phone, transaction_type, date,amount,balance from customerstransactions",
+                "select id, email,phone, transaction_type, date,amount,balance from customerstransactions where email=?",
                 (resultSet, rowNum) -> new CustomerTransactions(
                         resultSet.getInt("id"),
                         resultSet.getString("email"),
@@ -24,12 +24,12 @@ public class CustomerDao {
                         resultSet.getString("transaction_type"),
                         resultSet.getDate("date"),
                         resultSet.getString("amount"),
-                        resultSet.getString("balance")));
+                        resultSet.getString("balance")),email);
     }
     // get customer
     public Customer getCustomer(String email) {
         return this.jdbcTemplate.queryForObject(
-                "select id,name, email,password,type,phone, nid, dob, balance,transaction_status from customers where email=?",
+                "select id,name, email,password,phone, nid, dob, balance,transaction_status from customers where email=?",
                 (resultSet, rowNum) -> new Customer(
                         resultSet.getInt("id"),
                         resultSet.getString("name"),

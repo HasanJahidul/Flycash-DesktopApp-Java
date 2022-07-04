@@ -1,5 +1,7 @@
 package Dao;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 import javax.sql.DataSource;
 
@@ -9,7 +11,9 @@ public class TransDao {
         this.jdbcTemplate=new JdbcTemplate(dataSource);
     }
 
-    public void makeTransaction(String email, String phone, String transType,String amount , String balance){
 
+
+    public int makeTransaction(String email, String phone, String transType,String amount , String balance){
+        return this.jdbcTemplate.update("insert into customerstransactions (email,phone,transaction_type,amount,balance) values (?,?,?,?,?)",email,phone,transType,amount,balance);
     }
 }

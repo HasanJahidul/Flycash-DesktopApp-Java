@@ -34,7 +34,7 @@ public class CustomerDash {
     CustomerDao customerDao = applicationContext1.getBean("customerDao", CustomerDao.class);
     public CustomerDash(String email) {
         createUI();
-        Table();
+        Table(email);
         Customer res=GetData(email);
         System.out.println(res.getName());
         lbl_UserName.setText(res.getName());
@@ -60,44 +60,69 @@ public class CustomerDash {
         btn_addMoney.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                new TransactionsPanel(res,"Add money");
+                if(res.getTransaction_status().equals("blocked")){
+                    JOptionPane.showMessageDialog(null, "Your transaction has been blocked\n Please contact to customer care");
+                }else{
+                    frame.setVisible(false);
+                    new TransactionsPanel(res,"Add money");
+                }
+
             }
         });
         btn_cashIn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                new TransactionsPanel(res,"Cash In");
+                if(res.getTransaction_status().equals("blocked")){
+                    JOptionPane.showMessageDialog(null, "Your transaction has been blocked\n Please contact to customer care");
+                }else {
+                    frame.setVisible(false);
+                    new TransactionsPanel(res, "Cash In");
+                }
             }
         });
         btn_payBill.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                new TransactionsPanel(res,"Pay Bill");
+                if(res.getTransaction_status().equals("blocked")){
+                    JOptionPane.showMessageDialog(null, "Your transaction has been blocked\n Please contact to customer care");
+                }else {
+                    frame.setVisible(false);
+                    new TransactionsPanel(res, "Pay Bill");
+                }
             }
         });
         btn_cashOut.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                new TransactionsPanel(res,"Cash Out");
+                if(res.getTransaction_status().equals("blocked")){
+                    JOptionPane.showMessageDialog(null, "Your transaction has been blocked\n Please contact to customer care");
+                }else {
+                    frame.setVisible(false);
+                    new TransactionsPanel(res, "Cash Out");
+                }
             }
         });
         btn_donate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                new TransactionsPanel(res,"Donate money");
+                if(res.getTransaction_status().equals("blocked")){
+                    JOptionPane.showMessageDialog(null, "Your transaction has been blocked\n Please contact to customer care");
+                }else {
+                    frame.setVisible(false);
+                    new TransactionsPanel(res, "Donate money");
+                }
 
             }
         });
         btn_transferMoney.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                new TransactionsPanel(res,"Transfer Money");
+                if(res.getTransaction_status().equals("blocked")){
+                    JOptionPane.showMessageDialog(null, "Your transaction has been blocked\n Please contact to customer care");
+                }else {
+                    frame.setVisible(false);
+                    new TransactionsPanel(res, "Transfer Money");
+                }
             }
         });
     }
@@ -121,7 +146,7 @@ public class CustomerDash {
 
     }
 
-    private void Table() {
+    private void Table(String email) {
         //show data in tbl_transaction
         String[] columnNames = { "SL No.", "Email", "Phone", "Transaction Type", "Date", "Amount", "Balance" };
 //        String[] rowData = { "1", "2", "3", "4", "5", "6", "7" };
@@ -135,7 +160,7 @@ public class CustomerDash {
 
 
         int count=1;
-        for (CustomerTransactions trans: customerDao.getAllTransactions()){
+        for (CustomerTransactions trans: customerDao.getAllTransactions(email)){
             //add data to tbl_transaction
 //             System.out.println(trans);
             String[] rowData = { String.valueOf(count),trans.getEmail(),trans.getPhone(),trans.getTransaction_type(),String.valueOf(trans.getDate()),trans.getAmount(),trans.getBalance()};
