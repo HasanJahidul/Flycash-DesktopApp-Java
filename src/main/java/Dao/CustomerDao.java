@@ -3,6 +3,8 @@ import model.Customer;
 import model.CustomerTransactions;
 import model.LoginUser;
 import org.springframework.jdbc.core.JdbcTemplate;
+import services.CustomerService;
+
 import javax.sql.DataSource;
 import java.util.List;
 
@@ -28,18 +30,7 @@ public class CustomerDao {
     }
     // get customer
     public Customer getCustomer(String email) {
-        return this.jdbcTemplate.queryForObject(
-                "select id,name, email,password,phone, nid, dob, balance,transaction_status from customers where email=?",
-                (resultSet, rowNum) -> new Customer(
-                        resultSet.getInt("id"),
-                        resultSet.getString("name"),
-                        resultSet.getString("email"),
-                        resultSet.getString("password"),
-                        resultSet.getString("phone"),
-                        resultSet.getString("nid"),
-                        resultSet.getString("dob"),
-                        resultSet.getString("balance"),
-                        resultSet.getString("transaction_status")),email);
+        return CustomerService.Connect(jdbcTemplate).getCustomer(email);
     }
     public Customer getCustomerDataByPhone(String phone) {
         return this.jdbcTemplate.queryForObject(

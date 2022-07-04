@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26274fb6-cafa-46da-85cf-12bf3a8838c1" name="Changes" comment="login and register page created">
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/CustomerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Dao/CustomerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/CustomerDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Dao/TransDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/TransDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PrivatePages/Customer/CustomerDash.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PrivatePages/Customer/CustomerDash.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PrivatePages/Customer/CustomerDash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PrivatePages/Customer/CustomerDash.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PrivatePages/TransactionsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PrivatePages/TransactionsPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-context.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +78,7 @@
     </configuration>
     <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main" />
-      <module name="Flycash-DesktopApp-Java" />
+      <module name="Flycash-Java-DesktopApp" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
