@@ -85,7 +85,7 @@ public class TransactionsPanel {
     }
     private void passTrnasValue(Customer cus,int updated_balance){
         System.out.println("pass: "+updated_balance);
-        int res=transDao.makeCustomerTransaction(cus.getEmail(), txt_phone.getText(),lbl_transType.getText(), txt_amount.getText(),String.valueOf(updated_balance));
+        int res=transDao.makeCustomerTransactionForCustomer(cus.getEmail(), txt_phone.getText(),lbl_transType.getText(), txt_amount.getText(),String.valueOf(updated_balance));
         if (res==1){
             JOptionPane.showMessageDialog(null, "Transaction Successful");
             frame.setVisible(false);

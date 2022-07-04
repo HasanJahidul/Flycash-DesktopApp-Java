@@ -30,7 +30,7 @@ public class TransDao {
         return insertTransHistory(email,phone,transType,amount,balance,balance_updated);
     }
 
-    public int makeCustomerTransaction(String email, String phone, String transType, String amount, String balance) {
+    public int makeCustomerTransactionForCustomer(String email, String phone, String transType, String amount, String balance) {
        if (transType.equals("Send Money")) {
            System.out.println("mt: "+balance);
 

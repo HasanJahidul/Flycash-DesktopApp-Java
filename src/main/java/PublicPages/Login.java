@@ -85,14 +85,14 @@ public class Login {
                         JOptionPane.showMessageDialog(null, "Login Successful");
                         frame.setVisible(false);
                         new CustomerDash(result.getEmail());
-                    } else if (result.getEmail().equals("admin")) {
+                    } else if (result.getType().equals("admin")) {
                         JOptionPane.showMessageDialog(null, "Login Successful");
                         frame.setVisible(false);
                         new AdminDash();
-                    }else if(result.getEmail().equals("agent")){
+                    }else if(result.getType().equals("agent")){
                         JOptionPane.showMessageDialog(null, "Login Successful");
                         frame.setVisible(false);
-                        new AgentDash();
+                        new AgentDash(txt_email.getText());
                     } else {
                         JOptionPane.showMessageDialog(null, "Login Failed1");
                     }
