@@ -44,25 +44,29 @@ public class AgentDash {
     }
     private void Table(String email) {
         //show data in tbl_transaction
-        String[] columnNames = { "SL No.", "Email", "Phone", "Transaction Type", "Date", "Amount", "Balance" };
+        String[] columnNames1 = { "SL No.", "Email", "Phone", "Transaction Type", "Date", "Amount","Balance" };
 //        String[] rowData = { "1", "2", "3", "4", "5", "6", "7" };
-        DefaultTableModel model1 = new DefaultTableModel(columnNames, 0);
+        DefaultTableModel model1 = new DefaultTableModel(columnNames1,0);
+//        model1.setRowCount(0);
+        model1.addRow(columnNames1);
+
+        System.out.println("Col Count : "+model1.getColumnCount()+model1.getColumnName(1));
         tbl_agentTrans.setModel(model1);
         tbl_agentTrans.setEnabled(false);
         tbl_agentTrans.setRowSelectionAllowed(true);
         tbl_agentTrans.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         tbl_agentTrans.setRowSelectionAllowed(true);
         tbl_agentTrans.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-//        int count=1;
-//
-//        for (AgentTransactions trans: agentDao.getAllAgentTransactions(email)){
-//            //add data to tbl_transaction
-////             System.out.println(trans);
-//            String[] rowData = { String.valueOf(count),trans.getEmail(),trans.getPhone(),trans.getTransaction_type(),String.valueOf(trans.getDate()),trans.getAmount(),trans.getBalance()};
-//            model1.addRow(rowData);
-//            count++;
-//
-//        }
+        int count=1;
+
+        for (AgentTransactions trans: agentDao.getAllAgentTransactions(email)){
+            //add data to tbl_transaction
+//             System.out.println(trans);
+            String[] rowData = { String.valueOf(count),trans.getEmail(),trans.getPhone(),trans.getTransaction_type(),String.valueOf(trans.getDate()),trans.getAmount(),trans.getBalance()};
+            model1.addRow(rowData);
+            count++;
+
+        }
 
     }
 
