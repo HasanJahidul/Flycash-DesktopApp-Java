@@ -1,5 +1,6 @@
 package PrivatePages;
 
+import Dao.AgentDao;
 import Dao.CustomerDao;
 import Dao.TransDao;
 import PrivatePages.Customer.CustomerDash;
@@ -29,6 +30,8 @@ public class TransactionsPanel {
     private JPanel pan_txtPhone;
     private JPanel pan_cmbTrans;
 
+    ApplicationContext applicationContext2 = new ClassPathXmlApplicationContext("application-context.xml");
+    AgentDao agentDao = applicationContext2.getBean("agentDao", AgentDao.class);
     ApplicationContext applicationContext1 = new ClassPathXmlApplicationContext("application-context.xml");
     TransDao transDao = applicationContext1.getBean("transDao", TransDao.class);
     ApplicationContext applicationContext = new ClassPathXmlApplicationContext("application-context.xml");
@@ -66,6 +69,7 @@ public class TransactionsPanel {
         btn_make_trans.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 makeTransaction(cus,transType);
             }
         });
@@ -80,6 +84,7 @@ public class TransactionsPanel {
         frame.setLocationRelativeTo(null);
     }
     private void passTrnasValue(Customer cus,int updated_balance){
+        System.out.println("pass: "+updated_balance);
         int res=transDao.makeCustomerTransaction(cus.getEmail(), txt_phone.getText(),lbl_transType.getText(), txt_amount.getText(),String.valueOf(updated_balance));
         if (res==1){
             JOptionPane.showMessageDialog(null, "Transaction Successful");
@@ -107,23 +112,54 @@ public class TransactionsPanel {
 //                    System.out.println(cus);
                         updated_balance = balance + amount;
                         passTrnasValue(cus,updated_balance );
-                        System.out.println(updated_balance);
-                    }else if(transType.equals("Send Money")){
-                        if(customerDao.getCustomerByPhone(txt_phone.getText())==true){
-
-                            showMessage("user Found");
-                        }else{
-                            showMessage("user not found");
-                        }
-
-
-                }else{
+                    }else if(transType.equals("Donate money")){
                         if (amount < balance){
                             updated_balance=balance-amount;
                             passTrnasValue(cus, updated_balance );
+
                         }else{
                             showMessage("insufficient Balance");
                         }
+
+
+                }else if(transType.equals("Cash Out")){
+                        if(agentDao.getAgentByPhone(txt_phone.getText())==true){
+                            if (amount < balance){
+                                updated_balance = balance - amount;
+                                int res=transDao.makeTransactionForCashOut(cus.getEmail(), txt_phone.getText(),lbl_transType.getText(), txt_amount.getText(),String.valueOf(updated_balance));
+                                if (res==1){
+                                    JOptionPane.showMessageDialog(null, "Transaction Successful");
+                                    frame.setVisible(false);
+                                    new CustomerDash(cus.getEmail());
+                                }else{
+                                    JOptionPane.showMessageDialog(null,"Something is wrong with the server\n\n Please wait until experts fix bugs");
+                                }
+                                System.out.println(updated_balance);
+
+                            }else{
+                                showMessage("insufficient Balance");
+                            }
+                            //showMessage("user Found");
+
+                        }else{
+                            showMessage("This Phone number is not registered as agent in services");
+                        }
+
+                    }else{
+                        if(customerDao.getCustomerByPhone(txt_phone.getText())==true){
+                            if (amount < balance){
+                                updated_balance = balance - amount;
+                                passTrnasValue(cus,updated_balance );
+                                System.out.println(updated_balance);
+                            }else{
+                                showMessage("insufficient Balance");
+                            }
+                            //showMessage("user Found");
+
+                        }else{
+                            showMessage("Phone number is not registered in services");
+                        }
+
 
                     }
             }

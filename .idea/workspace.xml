@@ -5,10 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26274fb6-cafa-46da-85cf-12bf3a8838c1" name="Changes" comment="login and register page created">
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Dao/AgentDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/AgentTransactions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Agents.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/AgentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f4e8ad44-d5c2-42a8-b1b6-43f57ce5f632.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f4e8ad44-d5c2-42a8-b1b6-43f57ce5f632.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Dao/CustomerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/CustomerDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Dao/TransDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dao/TransDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PrivatePages/TransactionsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PrivatePages/TransactionsPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/CustomerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application-context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-context.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,7 +85,7 @@
     </configuration>
     <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main" />
-      <module name="Flycash-Java-DesktopApp" />
+      <module name="Flycash-DesktopApp-Java" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -125,6 +132,8 @@
       <workItem from="1656936915500" duration="817000" />
       <workItem from="1656937749250" duration="344000" />
       <workItem from="1656938118487" duration="4589000" />
+      <workItem from="1656946622258" duration="6052000" />
+      <workItem from="1656952731591" duration="537000" />
     </task>
     <task id="LOCAL-00001" summary="login and register page created">
       <created>1656720097001</created>

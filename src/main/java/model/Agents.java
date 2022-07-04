@@ -1,6 +1,6 @@
 package model;
 
-public class Customer {
+public class Agents {
     private int id;
     private String name;
     private String email;
@@ -11,11 +11,11 @@ public class Customer {
     private String balance;
     private String transaction_status;
 
-    public Customer() {
+    public Agents() {
     }
 
-    public Customer(int id, String name, String email, String password, String phone, String nid,String dob, String balance,
-            String transaction_status) {
+    public Agents(int id, String name, String email, String password, String phone, String nid,String dob, String balance,
+                    String transaction_status) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -26,7 +26,6 @@ public class Customer {
         this.balance = balance;
         this.transaction_status = transaction_status;
     }
-
 
 
 
@@ -100,5 +99,4 @@ public class Customer {
     public void setTransaction_status(String transaction_status) {
         this.transaction_status = transaction_status;
     }
-    
 }

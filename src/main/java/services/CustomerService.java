@@ -32,6 +32,37 @@ public class CustomerService {
                         resultSet.getString("balance"),
                         resultSet.getString("transaction_status")),email);
     }
+    public Customer getCustomerDataByPhone(String phone) {
+        return this.jdbcTemplate.queryForObject(
+                "select id,name, email,password,phone, nid, dob, balance,transaction_status from customers where phone=?",
+                (resultSet, rowNum) -> new Customer(
+                        resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("email"),
+                        resultSet.getString("password"),
+                        resultSet.getString("phone"),
+                        resultSet.getString("nid"),
+                        resultSet.getString("dob"),
+                        resultSet.getString("balance"),
+                        resultSet.getString("transaction_status")),phone);
+    }
+    public int updateBalanceByPhone(String phone, String balance) {
+        return this.jdbcTemplate.update("update customers set balance=? where phone=?", balance, phone);
+    }
+    //update transaction status by phone
+    public int updateTransactionStatus(String phone, String transaction_status) {
+        return this.jdbcTemplate.update("update customers set transaction_status=? where phone=?", transaction_status,
+                phone);
+    }
+    //update transaction status by email
+    public int updateTransactionStatusByEmail(String email, String transaction_status) {
+        return this.jdbcTemplate.update("update customers set transaction_status=? where email=?", transaction_status,
+                email);
+    }
+    //update balance by email
+    public int updateBalanceByEmail(String email, String balance) {
+        return this.jdbcTemplate.update("update customers set balance=? where email=?", balance, email);
+    }
 
     public static CustomerService Connect(JdbcTemplate jdbcTemplate){
         return new CustomerService(jdbcTemplate);

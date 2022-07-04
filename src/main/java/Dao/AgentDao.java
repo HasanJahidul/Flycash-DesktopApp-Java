@@ -1,0 +1,36 @@
+package Dao;
+import javax.sql.DataSource;
+
+import model.AgentTransactions;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import java.util.List;
+
+public class AgentDao {
+    private static JdbcTemplate jdbcTemplate;
+
+    public AgentDao(DataSource dataSource) {
+        this.jdbcTemplate = new JdbcTemplate(dataSource);
+    }
+
+    public List<AgentTransactions> getAllAgentTransactions(String email) {
+        return this.jdbcTemplate.query(
+                "select id, email,phone, transaction_type, date,amount,balance from agentstransactions where email=?",
+                (resultSet, rowNum) -> new AgentTransactions(
+                        resultSet.getInt("id"),
+                        resultSet.getString("email"),
+                        resultSet.getString("phone"),
+                        resultSet.getString("transaction_type"),
+                        resultSet.getString("date"),
+                        resultSet.getString("amount"),
+                        resultSet.getString("balance")),
+                email);
+    }
+    
+    //get agent by phone 
+    public boolean getAgentByPhone(String phone) {
+        List<Integer> res = this.jdbcTemplate.query(
+                "select 1 from agents where phone=?", (resu, row) -> 1, phone);
+        return res.size() > 0;
+    }
+}
