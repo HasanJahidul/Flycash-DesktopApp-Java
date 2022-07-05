@@ -161,7 +161,6 @@ public class TransactionsPanel {
             }else{
                     if (transType.equals("Add money")){
 //                    System.out.println(cmb_trans.getSelectedItem());
-//                    System.out.println(cus);
                         updated_balance = balance + amount;
                         passTrnasValue(cus,updated_balance );
                     }else if(transType.equals("Cash Out")){
@@ -186,7 +185,6 @@ public class TransactionsPanel {
                         }else{
                             showMessage("This Phone number is not registered as agent in services");
                         }
-
                     }else if(transType.equals("Send Money")) {
                         if(customerDao.getCustomerByPhone(txt_phone.getText())==true){
                             if (amount < balance){
@@ -209,8 +207,6 @@ public class TransactionsPanel {
                         }else{
                             showMessage("insufficient Balance");
                         }
-
-
                     }
             }
 
