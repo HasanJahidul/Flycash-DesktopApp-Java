@@ -28,6 +28,7 @@ public class CustomerDash {
     private JLabel lbl_logOut;
     private JTable tbl_transaction;
     private JScrollPane scPan_transactions;
+    private JLabel lbl_balance;
 
     ApplicationContext applicationContext1 = new ClassPathXmlApplicationContext("application-context.xml");
     CustomerDao customerDao = applicationContext1.getBean("customerDao", CustomerDao.class);
@@ -35,8 +36,8 @@ public class CustomerDash {
         createUI();
         Table(email);
         Customer res=GetData(email);
-        System.out.println(res.getName());
-        lbl_UserName.setText(res.getName()+"\nBalance: "+res.getBalance());
+        lbl_UserName.setText("Name: "+res.getName());
+        lbl_balance.setText("Balance: "+res.getBalance());
         System.out.println(customerDao.getCustomerByPhone("0197354541300"));
         System.out.println(customerDao.getCustomerByPhone("01973545413"));
 //        lbl_UserName.setText(email);

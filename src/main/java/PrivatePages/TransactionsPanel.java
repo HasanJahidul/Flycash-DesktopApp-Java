@@ -164,17 +164,7 @@ public class TransactionsPanel {
 //                    System.out.println(cus);
                         updated_balance = balance + amount;
                         passTrnasValue(cus,updated_balance );
-                    }else if(transType.equals("Donate money")){
-                        if (amount < balance){
-                            updated_balance=balance-amount;
-                            passTrnasValue(cus, updated_balance );
-
-                        }else{
-                            showMessage("insufficient Balance");
-                        }
-
-
-                }else if(transType.equals("Cash Out")){
+                    }else if(transType.equals("Cash Out")){
                         if(agentDao.getAgentByPhone(txt_phone.getText())==true){
                             if (amount < balance){
                                 updated_balance = balance - amount;
@@ -197,7 +187,7 @@ public class TransactionsPanel {
                             showMessage("This Phone number is not registered as agent in services");
                         }
 
-                    }else{
+                    }else if(transType.equals("Send Money")) {
                         if(customerDao.getCustomerByPhone(txt_phone.getText())==true){
                             if (amount < balance){
                                 updated_balance = balance - amount;
@@ -210,6 +200,14 @@ public class TransactionsPanel {
 
                         }else{
                             showMessage("Phone number is not registered in services");
+                        }
+                    }else {
+                        if (amount < balance){
+                            updated_balance=balance-amount;
+                            passTrnasValue(cus, updated_balance );
+
+                        }else{
+                            showMessage("insufficient Balance");
                         }
 
 

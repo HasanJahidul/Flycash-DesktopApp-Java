@@ -39,9 +39,12 @@ public class TransDao {
            int balance_updated =CustomerService.Connect(jdbcTemplate).updateBalanceByPhone(phone, String.valueOf(rcvr_balance));
            int senderBalanceUpdated= CustomerService.Connect(jdbcTemplate).updateBalanceByEmail(email,balance);
            return insertTransHistory(email,phone,transType,amount,balance,balance_updated);
-        }else{
-
-           return 0;
+        }else if(transType.equals("Add money")){
+           CustomerService.Connect(jdbcTemplate).updateBalanceByEmail(email,balance);
+           return insertTransHistoryForAddMoney(email,phone,transType,amount,balance);
+       }else{
+           CustomerService.Connect(jdbcTemplate).updateBalanceByEmail(email,balance);
+           return insertTransHistoryForAddMoney(email,phone,transType,amount,balance);
      }
 
     }
@@ -60,6 +63,9 @@ public class TransDao {
         }else{
             return 0;
         }
+    }
+    public int insertTransHistoryForAddMoney(String email, String phone, String transType, String amount, String balance){
+        return this.jdbcTemplate.update("insert into customerstransactions (email,phone,transaction_type,amount,balance) values (?,?,?,?,?)",email,phone,transType,amount,balance);
     }
     public int insertTransHistory(String email, String phone, String transType, String amount, String balance,int balance_updated){
         if (balance_updated==1){

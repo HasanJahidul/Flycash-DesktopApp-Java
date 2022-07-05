@@ -13,7 +13,6 @@ public class AuthDao {
 
     public LoginUser AuthenticateUser(String email, String password){
         // authenticate user
-
         try{
             return this.jdbcTemplate.queryForObject(
                     "select id, email, password, phone, nid, type from loginusers where email = ? and password = ?",
@@ -24,13 +23,13 @@ public class AuthDao {
                             resultSet.getString("phone"),
                             resultSet.getString("nid"),
                             resultSet.getString("type")),
-                    email,password);
+                    email,
+                    password
+            );
         }
         catch (Exception e){
             e.printStackTrace();
             return null;
         }
-
-
     }
 }

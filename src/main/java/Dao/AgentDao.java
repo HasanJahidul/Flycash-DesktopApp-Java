@@ -28,14 +28,16 @@ public class AgentDao {
                         resultSet.getString("date"),
                         resultSet.getString("amount"),
                         resultSet.getString("balance")),
-                email);
+                email
+        );
     }
     
     //get agent by phone 
     public boolean getAgentByPhone(String phone) {
-        List<Integer> res = this.jdbcTemplate.query(
-                "select 1 from agents where phone=?", (resu, row) -> 1, phone);
-        return res.size() > 0;
+        return this.jdbcTemplate.query(
+                "select 1 from agents where phone=?",
+                (resu, row) -> 1, phone)
+                .size()>0;
     }
     public Agents getAgent(String email) {
         return AgentService.Connect(jdbcTemplate).getAgent(email);

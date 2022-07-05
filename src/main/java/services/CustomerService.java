@@ -30,7 +30,9 @@ public class CustomerService {
                         resultSet.getString("nid"),
                         resultSet.getString("dob"),
                         resultSet.getString("balance"),
-                        resultSet.getString("transaction_status")),email);
+                        resultSet.getString("transaction_status")
+                ),
+                email);
     }
     public Customer getCustomerDataByPhone(String phone) {
         return this.jdbcTemplate.queryForObject(
@@ -44,7 +46,10 @@ public class CustomerService {
                         resultSet.getString("nid"),
                         resultSet.getString("dob"),
                         resultSet.getString("balance"),
-                        resultSet.getString("transaction_status")),phone);
+                        resultSet.getString("transaction_status")
+                ),
+                phone
+        );
     }
     public int updateBalanceByPhone(String phone, String balance) {
         return this.jdbcTemplate.update("update customers set balance=? where phone=?", balance, phone);
