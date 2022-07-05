@@ -1,7 +1,6 @@
 package Dao;
 import model.Customer;
 import model.CustomerTransactions;
-import model.LoginUser;
 import org.springframework.jdbc.core.JdbcTemplate;
 import services.CustomerService;
 
@@ -26,18 +25,20 @@ public class CustomerDao {
                         resultSet.getString("transaction_type"),
                         resultSet.getDate("date"),
                         resultSet.getString("amount"),
-                        resultSet.getString("balance")),email);
+                        resultSet.getString("balance")),
+                email
+        );
     }
     // get customer
     public Customer getCustomer(String email) {
-        return CustomerService.Connect(jdbcTemplate).getCustomer(email);
+        return CustomerService.connect(jdbcTemplate).getCustomer(email);
     }
 
 
     public boolean getCustomerByPhone(String phone) {
-        List<Integer> res = this.jdbcTemplate.query(
-                "select 1 from customers where phone=?", (resu, row) -> 1, phone);
-        return res.size() > 0;
+        return this.jdbcTemplate.query(
+                "select 1 from customers where phone=?", (resu, row) -> 1, phone
+        ).size()>0;
     }
     //update balance by phone
 }

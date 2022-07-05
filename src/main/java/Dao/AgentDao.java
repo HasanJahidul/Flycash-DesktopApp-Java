@@ -3,10 +3,8 @@ import javax.sql.DataSource;
 
 import model.AgentTransactions;
 import model.Agents;
-import model.Customer;
 import org.springframework.jdbc.core.JdbcTemplate;
 import services.AgentService;
-import services.CustomerService;
 
 import java.util.List;
 
@@ -40,7 +38,7 @@ public class AgentDao {
                 .size()>0;
     }
     public Agents getAgent(String email) {
-        return AgentService.Connect(jdbcTemplate).getAgent(email);
+        return AgentService.connect(jdbcTemplate).getAgent(email);
     }
 
 }

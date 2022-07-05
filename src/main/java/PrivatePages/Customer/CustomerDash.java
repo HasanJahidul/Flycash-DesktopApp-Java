@@ -40,28 +40,14 @@ public class CustomerDash {
         lbl_balance.setText("Balance: "+res.getBalance());
         System.out.println(customerDao.getCustomerByPhone("0197354541300"));
         System.out.println(customerDao.getCustomerByPhone("01973545413"));
-//        lbl_UserName.setText(email);
-
-        // JPanel panel = new JPanel(new GridLayout(4, 4, 3, 3));
-
-        // for (int i = 0; i < 16; i++) {
-        //     //JLabel l = new JLabel("" + i, JLabel.CENTER);
-        //     JLabel l = new JLabel(new ImageIcon("flycash.png"), JLabel.CENTER);
-        //     l.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
-        //     l.setFont(l.getFont().deriveFont(20f));
-        //     panel.add(l);
-        // }
-
-        // f.setContentPane(panel);
-        // f.setSize(500, 500);
-        // f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // f.setVisible(true);
-        // f.setLocationRelativeTo(null);
         btn_addMoney.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(res.getTransaction_status().equals("blocked")){
-                    JOptionPane.showMessageDialog(null, "Your transaction has been blocked\n Please contact to customer care");
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "Your transaction has been blocked\n Please contact to customer care"
+                    );
                 }else{
                     frame.setVisible(false);
                     new TransactionsPanel(res,"Add money");
@@ -73,7 +59,9 @@ public class CustomerDash {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(res.getTransaction_status().equals("blocked")){
-                    JOptionPane.showMessageDialog(null, "Your transaction has been blocked\n Please contact to customer care");
+                    JOptionPane.showMessageDialog(
+                            null, "Your transaction has been blocked\n Please contact to customer care"
+                    );
                 }else {
                     frame.setVisible(false);
                     new TransactionsPanel(res, "Send Money");
@@ -84,7 +72,10 @@ public class CustomerDash {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(res.getTransaction_status().equals("blocked")){
-                    JOptionPane.showMessageDialog(null, "Your transaction has been blocked\n Please contact to customer care");
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "Your transaction has been blocked\n Please contact to customer care"
+                    );
                 }else {
                     frame.setVisible(false);
                     new TransactionsPanel(res, "Pay Bill");
@@ -95,7 +86,10 @@ public class CustomerDash {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(res.getTransaction_status().equals("blocked")){
-                    JOptionPane.showMessageDialog(null, "Your transaction has been blocked\n Please contact to customer care");
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "Your transaction has been blocked\n Please contact to customer care"
+                    );
                 }else {
                     frame.setVisible(false);
                     new TransactionsPanel(res, "Cash Out");
@@ -106,19 +100,24 @@ public class CustomerDash {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(res.getTransaction_status().equals("blocked")){
-                    JOptionPane.showMessageDialog(null, "Your transaction has been blocked\n Please contact to customer care");
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "Your transaction has been blocked\n Please contact to customer care"
+                    );
                 }else {
                     frame.setVisible(false);
                     new TransactionsPanel(res, "Donate money");
                 }
-
             }
         });
         btn_transferMoney.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(res.getTransaction_status().equals("blocked")){
-                    JOptionPane.showMessageDialog(null, "Your transaction has been blocked\n Please contact to customer care");
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "Your transaction has been blocked\n Please contact to customer care"
+                    );
                 }else {
                     frame.setVisible(false);
                     new TransactionsPanel(res, "Transfer Money");
@@ -157,7 +156,6 @@ public class CustomerDash {
     private void Table(String email) {
         //show data in tbl_transaction
         String[] columnNames = { "SL No.", "Phone", "Transaction Type", "Date", "Amount", "Balance" };
-//        String[] rowData = { "1", "2", "3", "4", "5", "6", "7" };
         DefaultTableModel model = new DefaultTableModel(columnNames, 0);
         tbl_transaction.setModel(model);
         tbl_transaction.setEnabled(false);
@@ -170,12 +168,9 @@ public class CustomerDash {
         int count=1;
         for (CustomerTransactions trans: customerDao.getAllTransactions(email)){
             //add data to tbl_transaction
-//             System.out.println(trans);
             String[] rowData = { String.valueOf(count),trans.getPhone(),trans.getTransaction_type(),String.valueOf(trans.getDate()),trans.getAmount(),trans.getBalance()};
             model.addRow(rowData);
             count++;
-
-
         }
 
     }

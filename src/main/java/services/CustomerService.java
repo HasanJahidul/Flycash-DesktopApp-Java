@@ -69,7 +69,7 @@ public class CustomerService {
         return this.jdbcTemplate.update("update customers set balance=? where email=?", balance, email);
     }
 
-    public static CustomerService Connect(JdbcTemplate jdbcTemplate){
+    public static CustomerService connect(JdbcTemplate jdbcTemplate){
         return new CustomerService(jdbcTemplate);
     }
 }
