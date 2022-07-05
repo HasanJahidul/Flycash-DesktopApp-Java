@@ -32,11 +32,9 @@ public class TransactionsPanel {
     private JPanel pan_txtPhone;
     private JPanel pan_cmbTrans;
 
-    ApplicationContext applicationContext2 = new ClassPathXmlApplicationContext("application-context.xml");
-    AgentDao agentDao = applicationContext2.getBean("agentDao", AgentDao.class);
-    ApplicationContext applicationContext1 = new ClassPathXmlApplicationContext("application-context.xml");
-    TransDao transDao = applicationContext1.getBean("transDao", TransDao.class);
     ApplicationContext applicationContext = new ClassPathXmlApplicationContext("application-context.xml");
+    AgentDao agentDao = applicationContext.getBean("agentDao", AgentDao.class);
+    TransDao transDao = applicationContext.getBean("transDao", TransDao.class);
     CustomerDao customerDao = applicationContext.getBean("customerDao", CustomerDao.class);
     JFrame frame;
 
